@@ -30,8 +30,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', (req,res) => { res.send('it is working!')})
-app.post('/signin', (req,res) => {signin.handleSignin(req, res, db, bcrypt)});
+app.get('/', (req,res) => { res.send(database.users)})
+app.post('/signin', signin.handleSignin(db, bcrypt));
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)});    
 app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)});
 app.put('/image', (req, res) => {image.handleImage(req, res, db)});
