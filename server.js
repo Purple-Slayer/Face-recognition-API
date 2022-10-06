@@ -11,7 +11,7 @@ const image = require('./controllers/image.js');
 
 const Port = process.env.PORT || 4000;
 
-const path = require('path');
+
 
 const db = knex({
   client: 'pg',
@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {res.send("it's working!")});
-app.post('/signin', signin.handleSignin(db, bcrypt));
+app.post('/signin', (req, res) => {signin.handleSignin(db, bcrypt, res, req)});
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)});    
 app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)});
 app.put('/image', (req, res) => {image.handleImage(req, res, db)});
