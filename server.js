@@ -1,4 +1,4 @@
-//https://evening-depths-32865.herokuapp.com/
+ //  https://murmuring-shore-80548.herokuapp.com/
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
@@ -9,7 +9,7 @@ const signin = require('./controllers/signin.js');
 const profile = require('./controllers/profile.js');
 const image = require('./controllers/image.js');
 
-const Port = 4000;
+
 
 
 
@@ -44,8 +44,8 @@ app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)});
 app.put('/image', (req, res) => {image.handleImage(req, res, db)});
 app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)});
 
-
-
-app.listen(Port , () => {
-console.log(`app is running on port ${Port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
+
