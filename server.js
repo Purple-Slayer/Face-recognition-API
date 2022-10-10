@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 
 
 
-app.get('/', (req, res) => { res.send("it's working") });
+
 app.post('/signin', (req, res) => {signin.handleSignin(db, bcrypt, req, res)});
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)});    
 app.get('/profile/:id', (req, res) => {profile.handleProfile(req, res, db)});
