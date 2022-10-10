@@ -30,7 +30,7 @@ db.select('*').from('users')
       
     });
 
-const PORT = process.env.PORT || 3000 ;
+const PORT = process.env.PORT || 0000 ;
 
 const app = express();
 app.use(cors());
